@@ -179,6 +179,7 @@ func (ftp *Ftp) Upload(localFilePath string, remoteFilePath string) error {
 	if err != nil {
 		return err
 	}
+	defer localFile.Close()
 
 	var dataConn net.Conn
 	if dataConnPassive != nil {
